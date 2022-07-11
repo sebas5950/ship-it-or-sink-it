@@ -1,7 +1,10 @@
+
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
 import logo from './logo.svg';
 import './App.css';
-import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+
 import Matches from "./components/Matches.js"
 import Bio from "./components/Bio.js"
 import NavBar from "./components/NavBar.js"
@@ -23,7 +26,7 @@ function App() {
     return (
         <div>
         <NavBar />
-        <Switch>
+        <Routes>
             <Route exact path="/">
                 <Bio currentUser ={currentUser}
                  />
@@ -31,7 +34,7 @@ function App() {
             <Route path="/matches">
                 <Matches currentUser ={currentUser}/>
             </Route>
-        </Switch>
+        </Routes>
     </div>
     )
 }
