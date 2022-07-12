@@ -5,7 +5,7 @@ function NavBar() {
 
   return (
     <nav>
-      <NavLink className="navlink" exact to="/">
+      <NavLink className="navlink" end to="/">
         User Bio
       </NavLink>
       <NavLink className="navlink" to="/swiper">Swipe</NavLink>
