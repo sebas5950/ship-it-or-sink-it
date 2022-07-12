@@ -1,41 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 function BioForm({ bio }) {
 
 return (
-<form>
-<label>
-    Name:
-    <input type="text" name="name" placeholder= {bio.name}/>
-</label>
-    Age:
-<label>
-    <input type="number" name="age" placeholder={bio.age}/>
-</label>
-    Location:
-<label>
-    <input type="text" name="location" placeholder={bio.location}/>
-</label>
-    Gender:
-<label>
-    <select name="gender" placeholder={bio.gender}>
-        <option value="1">Male</option>
-        <option value="2">Female</option>
-        <option value="3">Nonbinary</option>
-      </select>
-</label>
-    Sexuality:
-<label>
-<select name="sexuality" placeholder={bio.sexuality}>
-        <option value="1">Gay</option>
-        <option value="2">Straight</option>
-        <option value="3">Bisexual</option>
-      </select>
-</label>    
-    Photo:
-<label>
-    <input type="text" name="image" placeholder={bio.image}/>
-</label>
-</form>)}
+    <div>
+        <h1>{bio.name}</h1>
+        <img src = {bio.image}/>
+            <h3>{bio.age}</h3>
+            <h3>{bio.gender}</h3>
+            <h3>{bio.location}</h3>
+            <h3>{bio.sexuality}</h3>
+            <p>{bio.info}</p>
+            <Link to={`/bio/${bio.id}/edit`} className="button">
+                Edit
+          </Link>
+   
+    </div>
+
+
+)}
 
 export default BioForm;
