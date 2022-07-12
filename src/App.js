@@ -21,14 +21,17 @@ function App() {
       await fetch(userURL)
       .then((response) => response.json())
       .then(async (data) => { 
-        setCurrentUser(data[6]);
-        const userId = data[6].id
+        setCurrentUser(data[4]);
+        const userId = data[4].id
         return fetch(`${bioURL}/${userId}`)
           .then((response) => response.json())
           .then(data => setBio(data))
       })}
       goGetEm()
   }, []);
+
+  
+ 
 
     return (
         <div>
