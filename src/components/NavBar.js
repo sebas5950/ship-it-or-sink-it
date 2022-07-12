@@ -6,9 +6,9 @@ function NavBar() {
   return (
     <nav>
       <NavLink className="navlink" end to="/">
-        User Bio
+        User
       </NavLink>
-      {/* <NavLink className="navlink" to="/swiper">Swipe</NavLink> */}
+      <NavLink className="navlink" to="/swiper">Swipper</NavLink>
       <NavLink className="navlink" to="/matches">Matches</NavLink>
     </nav>
   );
