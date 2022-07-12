@@ -7,13 +7,15 @@ function Matches({currentUser}) {
     const [matches, setMatches] = useState([]);
 
     useEffect(() => {
+        console.log(currentUser)
         fetch(`${MatchURL}/${currentUser.id}`)
           .then((response) => response.json())
-          .then(data => setMatches(data));
+          .then(data => setMatches(data))
       }, []);
 
     return (
         <div className="card">
+            {console.log(matches)}
             {matches.map(match => <ProfileCard profile = {match} key={match.id}/>)}
         </div>
     )

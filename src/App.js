@@ -21,8 +21,8 @@ function App() {
       await fetch(userURL)
       .then((response) => response.json())
       .then(async (data) => { 
-        setCurrentUser(data[0]);
-        const userId = data[0].id
+        setCurrentUser(data[6]);
+        const userId = data[6].id
         return fetch(`${bioURL}/${userId}`)
           .then((response) => response.json())
           .then(data => setBio(data))
