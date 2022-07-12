@@ -3,12 +3,12 @@ import ProfileCard from "./ProfileCard.js"
 
 function Matches({currentUser}) {
     
-    const MatchURL = "http://localhost:9292/matches"
+    const matchURL = "http://localhost:9292/matches"
     const [matches, setMatches] = useState([]);
 
     useEffect(() => {
-        console.log(currentUser)
-        fetch(`${MatchURL}/${currentUser.id}`)
+        console.log(currentUser.id)
+        fetch(`${matchURL}/${currentUser.id}`)
           .then((response) => response.json())
           .then(data => setMatches(data))
       }, []);
@@ -16,7 +16,7 @@ function Matches({currentUser}) {
     return (
         <div className="card">
             {console.log(matches)}
-            {matches.map(match => <ProfileCard profile = {match} key={match.id}/>)}
+            {matches.map(profile => <ProfileCard profile = {profile} key={profile.id}/>)}
         </div>
     )
 }
