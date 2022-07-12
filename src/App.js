@@ -8,6 +8,7 @@ import './App.css';
 import Matches from "./components/Matches.js"
 import Bio from "./components/Bio.js"
 import NavBar from "./components/NavBar.js"
+import Info from "./components/Info.js"
 
 function App() {
 
@@ -41,6 +42,8 @@ function App() {
             element = {<Bio bio ={bio}/>}>
             </Route>
             <Route path="/matches" element = {<Matches currentUser ={currentUser}/>}>
+            </Route>
+            <Route path = "/:id/Info" element = {<Info />}>
             </Route>
         </Routes>
     </div>
