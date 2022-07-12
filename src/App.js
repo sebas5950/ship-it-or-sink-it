@@ -8,7 +8,11 @@ import './App.css';
 import Matches from "./components/Matches.js"
 import Bio from "./components/Bio.js"
 import NavBar from "./components/NavBar.js"
+
+import Info from "./components/Info.js"
+
 import Swiper from "./components/Swiper.js"
+
 
 function App() {
 
@@ -42,6 +46,10 @@ function App() {
     goGetEm()
   }, []);
 
+
+ 
+
+  
   return (
     <div>
       <NavBar />
@@ -50,11 +58,14 @@ function App() {
           element={<Bio bio={bio} />}>
         </Route>
         <Route path="/swiper" element={
-          <Swiper currentUser={currentUser} profiles = {profiles}
-          />}></Route>
+          <Swiper currentUser={currentUser} profiles = {profiles} />}>
+          </Route>
         <Route path="/matches" element={<Matches currentUser={currentUser} />}>
         </Route>
+        <Route path = "/:id/Info" element = {<Info />}>
+        </Route>
       </Routes>
+
     </div>
   )
 }
