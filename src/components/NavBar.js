@@ -8,7 +8,7 @@ function NavBar() {
       <NavLink className="navlink" end to="/">
         User
       </NavLink>
-      <NavLink className="navlink" to="/swiper">Swipper</NavLink>
+      <NavLink className="navlink" to="/swiper">Swiper</NavLink>
       <NavLink className="navlink" to="/matches">Matches</NavLink>
     </nav>
   );

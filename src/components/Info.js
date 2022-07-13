@@ -15,7 +15,7 @@ useEffect(() => {
 })
 
 const {name, age, gender, sexuality, location, info, image } = profileData
-    console.log(profileData)
+    //console.log(profileData)
 return (
     <div>
         <h1>{name}</h1>
