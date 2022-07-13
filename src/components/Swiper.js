@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProfileInfo from "./ProfileCard.js"
+import SwiperCard from "./SwiperCard.js";
 
 function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
 
@@ -57,7 +58,7 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
 
     return (
         <div className="card">
-            <ProfileInfo profile={profiles[profileCount]} />
+            <SwiperCard profile={profiles[profileCount]} />
             <span>
                 <button onClick={handleDislike}>❌</button>
                 <button onClick={handleLike}>✔️</button>
