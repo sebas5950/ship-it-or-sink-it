@@ -17,7 +17,7 @@ function Matches({currentUser}) {
      
     return (
         <div className="card">
-            {matches.map(profile => <ProfileCard profile = {profile} key={profile.id}/>)}
+            {matches.map(profile => <ProfileCard  profile = {profile} key={profile.id}/>)}
         </div>
     )
 }

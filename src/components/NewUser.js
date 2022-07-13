@@ -25,6 +25,7 @@ const [ formData, setFormData ] = useState(starterFormData);
             body: JSON.stringify(formData)
         }
         )
+        setFormData(starterFormData)
     }
 
     function handleChange(e) {
