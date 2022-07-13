@@ -25,7 +25,7 @@ function Info() {
     return (
         <div>
             <h1>{name}</h1>
-            <img src={image} />
+            <img src={image} alt={name}/>
             <h3>{age}</h3>
             <h3>{gender}</h3>
             <h3>{location}</h3>
