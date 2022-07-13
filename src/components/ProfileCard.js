@@ -9,7 +9,7 @@ function ProfileCard({profile}) {
             <h1>{profile.name}</h1>
             <img src = {profile.image}/>
             
-            <Link to={`/${profile.id}/Info`}>Bio</Link>
+            <Link to={`/${profile.id}/info`}>Bio</Link>
 
         </div>
     )

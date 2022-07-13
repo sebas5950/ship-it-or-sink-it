@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar.js"
 import Info from "./components/Info.js"
 import Swiper from "./components/Swiper.js"
 import EditForm from "./components/EditForm";
+import NewUser from "./components/NewUser";
 
 
 function App() {
@@ -40,21 +41,27 @@ function App() {
     goGetEm()
   }, []);
 
+  function updateBio(obj){
+    setCurrentUser(obj)
+  }
+
   return (
     <div>
       <NavBar />
       <Routes>
-        <Route exact path="/"
-          element={<Bio bio={currentUser} />}>
+        <Route exact path="/" element={<Bio bio={currentUser} />}>
         </Route>
         <Route path="/swiper" element={
   <Swiper currentUser={currentUser} profiles = {profiles} profileCount ={profileCount} setProfileCount={setProfileCount}/>}>
   </Route>
         <Route path="/matches" element={<Matches currentUser={currentUser} />}>
         </Route>
-        <Route path = "/:id/Info" element = {<Info />}>
+        <Route path="/newUser" element={<NewUser />}>
         </Route>
-        <Route path = "/bio/:id/edit" element = {<EditForm currentUser={currentUser}/>}></Route>
+        <Route path="/:id/info" element={<Info />}>
+        </Route>
+        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} onUpdateBio={updateBio}/>}></Route>
+        
       </Routes>
 
     </div>

@@ -13,6 +13,7 @@ function Matches({currentUser}) {
           .then(data => setMatches(data))
       }, []);
 
+      console.log(matches)
      
     return (
         <div className="card">

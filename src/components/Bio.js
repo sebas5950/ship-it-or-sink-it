@@ -5,7 +5,7 @@ function Bio({ bio }) {
 
     return (
         <div className="card">
-            <img src={bio.image} />
+            {/* <img src={bio.image} /> */}
             <BioForm bio={bio} />
         </div>
     )
