@@ -21,7 +21,7 @@ function App() {
   const profilesURL = "http://localhost:9292/profiles"
   const [profiles, setProfiles] = useState([]);
   const [profileCount, setProfileCount] = useState(0);
-  
+
   useEffect(() => {
     async function goGetEm() {
       await fetch(userURL)
@@ -31,17 +31,17 @@ function App() {
           const user = data[0].id
           //console.log(data[0]) 
           fetch(`${profilesURL}/swiper/${user}`)
-                .then((response) => response.json())
-                .then(data => {
-                    setProfiles(data)
-                    console.log(data)
-          })
+            .then((response) => response.json())
+            .then(data => {
+              setProfiles(data)
+              console.log(data)
+            })
         })
     }
     goGetEm()
   }, []);
 
-  function updateBio(obj){
+  function updateBio(obj) {
     setCurrentUser(obj)
   }
 
@@ -52,16 +52,16 @@ function App() {
         <Route exact path="/" element={<Bio bio={currentUser} />}>
         </Route>
         <Route path="/swiper" element={
-  <Swiper currentUser={currentUser} profiles = {profiles} profileCount ={profileCount} setProfileCount={setProfileCount}/>}>
-  </Route>
+          <Swiper currentUser={currentUser} profiles={profiles} profileCount={profileCount} setProfileCount={setProfileCount} />}>
+        </Route>
         <Route path="/matches" element={<Matches currentUser={currentUser} />}>
         </Route>
         <Route path="/newUser" element={<NewUser />}>
         </Route>
         <Route path="/:id/info" element={<Info />}>
         </Route>
-        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} onUpdateBio={updateBio}/>}></Route>
-        
+        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} onUpdateBio={updateBio} />}></Route>
+
       </Routes>
 
     </div>

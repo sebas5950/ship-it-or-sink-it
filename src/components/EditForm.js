@@ -5,37 +5,37 @@ import { useParams, useNavigate } from "react-router-dom";
 function EditForm({ currentUser, onUpdateBio }) {
 
     let navigate = useNavigate()
-    const {name, age, gender, sexuality, info, location, image } = currentUser
-const {id} = useParams()
-let starterFormData = {
-    name: name,
-    age: age,
-    gender: gender,
-    sexuality: sexuality,
-    info: info,
-    location: location,
-    image: image,
-}
-const [ formData, setFormData ] = useState(starterFormData);
+    const { name, age, gender, sexuality, info, location, image } = currentUser
+    const { id } = useParams()
+    let starterFormData = {
+        name: name,
+        age: age,
+        gender: gender,
+        sexuality: sexuality,
+        info: info,
+        location: location,
+        image: image,
+    }
+    const [formData, setFormData] = useState(starterFormData);
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault()
         fetch(`http://localhost:9292/users/${id}`, {
-            method : "PATCH",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
             },
             body: JSON.stringify(formData)
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => console.log(data))
         navigate(`/`)
     }
 
     function handleChange(e) {
-        const {value, name} = e.target
-        setFormData({...formData, [name]: value })
+        const { value, name } = e.target
+        setFormData({ ...formData, [name]: value })
     }
 
 
@@ -44,15 +44,15 @@ const [ formData, setFormData ] = useState(starterFormData);
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
-                    <input type="text" name="name" placeholder={name} value={formData.name} onChange={handleChange}/>
+                    <input type="text" name="name" placeholder={name} value={formData.name} onChange={handleChange} />
                 </label>
                 Age:
                 <label>
-                    <input type="number" name="age" placeholder={age} value={formData.age} onChange={handleChange}/>
+                    <input type="number" name="age" placeholder={age} value={formData.age} onChange={handleChange} />
                 </label>
                 Location:
                 <label>
-                    <input type="text" name="location" placeholder={location} value={formData.location} onChange={handleChange}/>
+                    <input type="text" name="location" placeholder={location} value={formData.location} onChange={handleChange} />
                 </label>
                 Gender:
                 <label>
@@ -72,10 +72,10 @@ const [ formData, setFormData ] = useState(starterFormData);
                 </label>
                 Photo:
                 <label>
-                    <input type="text" name="image" placeholder='image' value={formData.image} onChange={handleChange}/>
+                    <input type="text" name="image" placeholder='image' value={formData.image} onChange={handleChange} />
                 </label>
                 <label>
-                    <textarea type="text" name="info" placeholder={info} value={formData.info} onChange={handleChange}/>
+                    <textarea type="text" name="info" placeholder={info} value={formData.info} onChange={handleChange} />
                 </label>
                 <button>Save</button>
             </form>

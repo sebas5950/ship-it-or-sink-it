@@ -18,21 +18,21 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
     async function checkForMatch(bool) {
         await fetch(`${matchURL}/${currentUser.id}/${profiles[profileCount].id}/${bool}`, {
             method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify({
-                    swipe_user: bool
-                })
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                swipe_user: bool
             })
-            // .then(response => response.json())
-            // .then(async (data) => {
-            //     console.log(data)
-            //     const user = data.id
-            //     console.log(user)
-            //     updateMatch(bool, user)
-            // })
+        })
+        // .then(response => response.json())
+        // .then(async (data) => {
+        //     console.log(data)
+        //     const user = data.id
+        //     console.log(user)
+        //     updateMatch(bool, user)
+        // })
         console.log(bool)
     }
 

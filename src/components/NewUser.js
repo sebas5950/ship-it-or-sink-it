@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 
 
-function NewUser(){
-   
-let starterFormData = {
-    name: '',
-    age: '',
-    gender: '',
-    sexuality: '',
-    info: '',
-    location: '',
-    image: '',
-}
-const [ formData, setFormData ] = useState(starterFormData);
+function NewUser() {
 
-    function handleSubmit(e){
+    let starterFormData = {
+        name: '',
+        age: '',
+        gender: '',
+        sexuality: '',
+        info: '',
+        location: '',
+        image: '',
+    }
+    const [formData, setFormData] = useState(starterFormData);
+
+    function handleSubmit(e) {
         e.preventDefault()
         fetch(`http://localhost:9292/users`, {
-            method : "POST",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
@@ -29,26 +29,26 @@ const [ formData, setFormData ] = useState(starterFormData);
     }
 
     function handleChange(e) {
-        const {value, name} = e.target
-        setFormData({...formData, [name]: value })
+        const { value, name } = e.target
+        setFormData({ ...formData, [name]: value })
     }
 
-console.log(formData)
+    console.log(formData)
 
     return (
         <div className="card">
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
-                    <input type="text" name="name" placeholder='name' value={formData.name} onChange={handleChange}/>
+                    <input type="text" name="name" placeholder='name' value={formData.name} onChange={handleChange} />
                 </label>
                 Age:
                 <label>
-                    <input type="number" name="age" placeholder='age' value={formData.age} onChange={handleChange}/>
+                    <input type="number" name="age" placeholder='age' value={formData.age} onChange={handleChange} />
                 </label>
                 Location:
                 <label>
-                    <input type="text" name="location" placeholder='location' value={formData.location} onChange={handleChange}/>
+                    <input type="text" name="location" placeholder='location' value={formData.location} onChange={handleChange} />
                 </label>
                 Gender:
                 <label>
@@ -68,10 +68,10 @@ console.log(formData)
                 </label>
                 Photo:
                 <label>
-                    <input type="text" name="image" placeholder='image' value={formData.image} onChange={handleChange}/>
+                    <input type="text" name="image" placeholder='image' value={formData.image} onChange={handleChange} />
                 </label>
                 <label>
-                    <textarea type="text" name="info" placeholder='info' value={formData.info} onChange={handleChange}/>
+                    <textarea type="text" name="info" placeholder='info' value={formData.info} onChange={handleChange} />
                 </label>
                 <button>Save</button>
             </form>
