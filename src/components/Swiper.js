@@ -1,33 +1,48 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import ProfileInfo from "./ProfileCard.js"
 
-function Swiper({currentUser, profiles}) {
-    
+function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
+
     const matchURL = "http://localhost:9292/matches"
+    //const [profilesToSwipe, setProfilesToSwipe] = useState(profileList);
     
-    const [profileCount, setProfileCount] = useState(0);
-    
+
+    // useEffect(()=> {
+    //     setProfilesToSwipe(window.localStorage.getItem('profilesToSwipe'))
+    // }, [])
+    // useEffect(()=> {
+    //     window.localStorage.setItem('profilesToSwipe', profilesToSwipe)
+    // }, [profilesToSwipe])
+
     function handleLike() {
         checkForMatch(true)
         setProfileCount(profileCount + 1)
+        //handleSwipe()
     }
     function handleDislike() {
         checkForMatch(false)
         setProfileCount(profileCount + 1)
+        //handleSwipe()
     }
 
-    function checkForMatch(bool){
-        fetch(`${matchURL}/${currentUser.id}/${profiles[profileCount].id}/check`)
-        .then(response => response.json())
-        .then(data => {console.log(data)
-            updateMatch(bool)
-        })
-        return bool
+    // function handleSwipe() {
+    //     let newProfiles = [...profilesToSwipe].shift()
+    //     setProfilesToSwipe(newProfiles)
+    // }
+
+    async function checkForMatch(bool) {
+        await fetch(`${matchURL}/${currentUser.id}/${profiles[profileCount].id}/check`)
+            .then(response => response.json())
+            .then(async (data) => {
+                console.log(data)
+                await updateMatch(bool)
+            })
+        console.log(bool)
     }
-    
-    function updateMatch(bool) {
-         fetch(`${matchURL}/${currentUser.id}/${profiles[profileCount].id}/update`, {
-            method : "PATCH",
+
+    async function updateMatch(bool) {
+        await fetch(`${matchURL}/${currentUser.id}/${profiles[profileCount].id}/update`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
@@ -36,14 +51,16 @@ function Swiper({currentUser, profiles}) {
                 swipe_user: bool
             })
         })
+            .then(resp => resp.json())
+            .then(data => console.log(data))
     }
 
     return (
         <div className="card">
-            <ProfileInfo profile = {profiles[profileCount]}/>
+            <ProfileInfo profile={profiles[profileCount]} />
             <span>
-            <button onClick = {handleDislike}>❌</button>
-            <button onClick = {handleLike}>✔️</button>
+                <button onClick={handleDislike}>❌</button>
+                <button onClick={handleLike}>✔️</button>
             </span>
         </div>
     )
