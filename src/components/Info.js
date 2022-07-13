@@ -12,10 +12,10 @@ useEffect(() => {
     fetch(`${profileUrl}/${id}`)
     .then(res => res.json())
     .then(data => setProfileData(data))
-})
+}, [])
 
 const {name, age, gender, sexuality, location, info, image } = profileData
-    console.log(profileData)
+    console.log(id)
 return (
     <div>
         <h1>{name}</h1>

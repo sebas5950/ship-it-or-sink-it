@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar.js"
 import Info from "./components/Info.js"
 import Swiper from "./components/Swiper.js"
 import EditForm from "./components/EditForm";
+import NewUser from "./components/NewUser";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   const [profiles, setProfiles] = useState([]);
 
 
-  
+
   useEffect(() => {
     async function goGetEm() {
       await fetch(userURL)
@@ -35,37 +36,41 @@ function App() {
           //   .then((response) => response.json())
           //   .then(async (data) => {
           //     setBio(data)
-              return fetch(`${profilesURL}/swiper/${userId}`)
-                .then((response) => response.json())
-                .then(data => {
-                  setProfiles(data)
-                  console.log(data)
-                })
-            
+          return fetch(`${profilesURL}/swiper/${userId}`)
+            .then((response) => response.json())
+            .then(data => {
+              setProfiles(data)
+              console.log(data)
+            })
+
         })
     }
     goGetEm()
   }, []);
 
-// console.log(bio)
- 
+  function updateBio(obj){
+    setCurrentUser(obj)
+  }
+  // console.log(bio)
 
-  
+
+
   return (
     <div>
       <NavBar />
       <Routes>
-        <Route exact path="/"
-          element={<Bio bio={currentUser} />}>
+        <Route exact path="/" element={<Bio bio={currentUser} />}>
         </Route>
-        <Route path="/swiper" element={
-  <Swiper currentUser={currentUser} profiles = {profiles} />}>
-  </Route>
+        <Route path="/swiper" element={<Swiper currentUser={currentUser} profiles={profiles} />}>
+        </Route>
         <Route path="/matches" element={<Matches currentUser={currentUser} />}>
         </Route>
-        <Route path = "/:id/Info" element = {<Info />}>
+        <Route path="/newUser" element={<NewUser />}>
         </Route>
-        <Route path = "/bio/:id/edit" element = {<EditForm currentUser={currentUser}/>}></Route>
+        <Route path="/:id/info" element={<Info />}>
+        </Route>
+        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} onUpdateBio={updateBio}/>}></Route>
+        
       </Routes>
 
     </div>

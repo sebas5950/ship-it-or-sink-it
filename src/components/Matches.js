@@ -13,10 +13,11 @@ function Matches({currentUser}) {
           .then(data => setMatches(data))
       }, []);
 
+      console.log(matches)
      
     return (
         <div className="card">
-            {console.log(matches)}
+          
             {matches.map(profile => <ProfileCard profile = {profile} key={profile.id}/>)}
         </div>
     )
