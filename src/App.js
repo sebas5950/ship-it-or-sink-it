@@ -31,11 +31,12 @@ function App() {
         .then(async (data) => {
           setCurrentUser(data[0]);
           const userId = data[0].id
+          console.log(data[0])
           // return fetch(`${bioURL}/${userId}`)
           //   .then((response) => response.json())
           //   .then(async (data) => {
           //     setBio(data)
-              return fetch(`${profilesURL}/swiper/${userId}`)
+              await fetch(`${profilesURL}/swiper/${userId}`)
                 .then((response) => response.json())
                 .then(data => {
                   setProfiles(data)
