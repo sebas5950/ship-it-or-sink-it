@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import SwiperCard from "./SwiperCard.js";
 
 function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheEnd, setIsItTheEnd }) {
