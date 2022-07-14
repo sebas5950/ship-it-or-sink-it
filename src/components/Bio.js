@@ -4,7 +4,7 @@ import BioForm from "./BioForm";
 function Bio({ bio }) {
 
     return (
-        <div className="card">
+        <div className="before-bio">
             {/* <img src={bio.image} /> */}
             <BioForm bio={bio} />
         </div>

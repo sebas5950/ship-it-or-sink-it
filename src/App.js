@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-//import logo from './logo.svg';
 import './App.css';
 
 import Matches from "./components/Matches.js"
@@ -12,7 +11,7 @@ import Info from "./components/Info.js"
 import Swiper from "./components/Swiper.js"
 import EditForm from "./components/EditForm";
 import NewUser from "./components/NewUser";
-
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -46,13 +45,15 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="page-container">
+      
+
       <NavBar />
-      <Routes>
+      <div className="content-wrap">
+        <Routes>
         <Route exact path="/" element={<Bio bio={currentUser} />}>
         </Route>
-        <Route path="/swiper" element={
-          <Swiper currentUser={currentUser} profiles={profiles} profileCount={profileCount} setProfileCount={setProfileCount} />}>
+        <Route path="/swiper" element={<Swiper currentUser={currentUser} profiles={profiles} profileCount={profileCount} setProfileCount={setProfileCount} />}>
         </Route>
         <Route path="/matches" element={<Matches currentUser={currentUser} />}>
         </Route>
@@ -60,10 +61,11 @@ function App() {
         </Route>
         <Route path="/:id/info" element={<Info />}>
         </Route>
+        
         <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} onUpdateBio={updateBio} />}></Route>
-
-      </Routes>
-
+      </Routes>      
+      </div>
+        <Footer />
     </div>
   )
 }

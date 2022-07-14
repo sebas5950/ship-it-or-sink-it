@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProfileInfo from "./ProfileCard.js"
 import SwiperCard from "./SwiperCard.js";
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+
 
 function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
 
@@ -51,11 +54,13 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
 
     return (
         <div className="card">
-            <SwiperCard profile={profiles[profileCount]} />
-            <span>
-                <button onClick={handleDislike}>❌</button>
-                <button onClick={handleLike}>✔️</button>
+            <Card sx={{ maxWidth: 300 }}>
+                <span>
+                <SwiperCard profile={profiles[profileCount]} />
+                <Button onClick={handleDislike}>❌</Button>
+                <Button onClick={handleLike}>✔️</Button>
             </span>
+            </Card>
         </div>
     )
 }
