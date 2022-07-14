@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function Info() {
 
@@ -24,14 +29,28 @@ function Info() {
 
     return (
         <div>
-            <h1>{name}</h1>
-            <img src={image} alt={name}/>
-            <h3>{age}</h3>
-            <h3>{gender}</h3>
-            <h3>{location}</h3>
-            <h3>{sexuality}</h3>
-            <p>{info}</p>
-            <button onClick={handleClick}>BACK</button>
+
+            <Card className="info-card" sx={{ maxWidth: 300 }}>
+                <CardMedia
+                    className="card-image"
+                    component="img"
+                    image={image}
+                    alt="green iguana"
+                />
+                <CardContent className="card-content">
+                    <Typography className="info-name" gutterBottom variant="h5" component="div">
+                        {name}
+                    </Typography>
+                    <Typography className="card-desc" variant="subtitle1">{`Age: ${age}`}</Typography>
+                    <Typography className="card-desc" variant="subtitle1">{`Gender: ${gender}`}</Typography>
+                    <Typography className="card-desc" variant="subtitle1">{`Location: ${location}`}</Typography>
+                    <Typography className="card-desc" variant="subtitle1">{`Sexuality: ${sexuality}`}</Typography>
+                    <Typography className="card-desc" variant="body1" color="text.secondary">{`Bio: ${info}`}</Typography>
+                    <Button className="button" onClick={handleClick}><ArrowBackIcon /></Button>
+                </CardContent>
+            </Card>
+
+
         </div>
     )
 }

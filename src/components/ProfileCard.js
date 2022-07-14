@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 function ProfileCard({ profile, handleUnmatch }) {
 
@@ -7,10 +13,18 @@ function ProfileCard({ profile, handleUnmatch }) {
     return (
         <div className="card">
 
-            <h1>{profile.name}</h1>
-            <img src={profile.image} alt = {profile.name}/>
-            <button onClick={() => handleUnmatch(profile.id)}>Unmatch</button>
-            <Link to={`/${profile.id}/info`}>Bio</Link>
+            <Card className="card-holder" sx={{ maxWidth: 345 }} >
+                <CardMedia className="img" component="img" image={profile.image} alt="profile picture" />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {profile.name}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button size="small" onClick={handleUnmatch}>Unmatch</Button>
+                    <Button><Link to={`/${profile.id}/info`}>Bio</Link></Button>
+                </CardActions>
+            </Card>
 
         </div>
     )

@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.nav-bar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: rgb(87, 91, 85);
+  position:sticky;
+  top: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-link{
+  display: flex;
+  justify-content: space-around;
+  width: 50%
+}
+.link{
+  text-decoration: none;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo{
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.rows{
+
+}
+
+.page-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+
+}
+
+.content-wrap{
+  flex: 1;
+}
+
+.main-footer{
   color: white;
+  background-color: rgb(87, 91, 85);
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+ 
+.content-wrap{
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+  background-image: url("https://cdn.discordapp.com/attachments/976145903788371988/997151217270661140/smashorpass.png");
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: contain;
+  /* background-size: cover; */
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.matches-route{
+  
 }

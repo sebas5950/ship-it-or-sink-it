@@ -32,8 +32,10 @@ function Matches({ currentUser, setCurrentUser }) {
 
 
     return (
-        <div className="card">
+
+        <div className="matches-card">
             {matches.map(profile => <ProfileCard profile={profile} key={profile.id} currentUser={currentUser} handleUnmatch = {handleUnmatch}/>)}
+
         </div>
     )
 }

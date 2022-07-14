@@ -1,5 +1,8 @@
 import React from "react";
 import SwiperCard from "./SwiperCard.js";
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+
 
 function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheEnd, setIsItTheEnd }) {
 
@@ -34,12 +37,17 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheE
     return (
         <div>{isItTheEnd? <h3>Sorry, there are no more users in your area.</h3> :
         <div className="card">
-            <SwiperCard profile={profiles[profileCount]} />
-            <span>
-                <button onClick={handleDislike}>❌</button>
-                <button onClick={handleLike}>✔️</button>
+            <Card sx={{ maxWidth: 300 }}>
+                <span>
+                <SwiperCard profile={profiles[profileCount]} />
+                <Button onClick={handleDislike}>❌</Button>
+                <Button onClick={handleLike}>✔️</Button>
             </span>
-        </div>}</div>
+
+            </Card>
+        </div>
+
+        </div>
     )
 }
 
