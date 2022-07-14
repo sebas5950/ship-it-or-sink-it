@@ -12,6 +12,7 @@ function BioForm({ bio }) {
     const { name, age, gender, sexuality, location, info, image } = bio
 
     return (
+
         <div className="container-bio">
             <Card className="bio-card" sx={{ maxWidth: 300 }}>
                 <CardMedia

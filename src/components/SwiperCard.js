@@ -12,6 +12,7 @@ function SwiperCard({ profile }) {
 
     return (
         <div className="card">
+
                 <CardMedia className="img" component="img" image={profile.image} alt="profile picture" />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -21,6 +22,7 @@ function SwiperCard({ profile }) {
                 <CardActions>
                     <Button><Link to={`/${profile.id}/info`}>Bio</Link></Button>
                 </CardActions>
+
         </div>
     )
 }

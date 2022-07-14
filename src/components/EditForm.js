@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 
-function EditForm({ currentUser, onUpdateBio }) {
+function EditForm({ currentUser, setCurrentUser }) {
 
     let navigate = useNavigate()
     const { name, age, gender, sexuality, info, location, image } = currentUser
@@ -28,8 +28,8 @@ function EditForm({ currentUser, onUpdateBio }) {
             },
             body: JSON.stringify(formData)
         })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        .then(res => res.json())
+        .then(data => setCurrentUser(data))
         navigate(`/`)
     }
 
@@ -37,7 +37,6 @@ function EditForm({ currentUser, onUpdateBio }) {
         const { value, name } = e.target
         setFormData({ ...formData, [name]: value })
     }
-
 
     return (
         <div className="card">

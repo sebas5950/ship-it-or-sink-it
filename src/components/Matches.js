@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "./ProfileCard.js"
 
-function Matches({ currentUser }) {
+function Matches({ currentUser, setCurrentUser }) {
     // console.log(currentUser.id)
 
     const matchURL = "http://localhost:9292/matches"
@@ -11,13 +11,31 @@ function Matches({ currentUser }) {
         fetch(`${matchURL}/${currentUser.id}`)
             .then((response) => response.json())
             .then(data => setMatches(data))
-    }, []);
+    }, [currentUser]);
 
-    console.log(matches)
+    async function handleUnmatch(profileId) {
+        await fetch(`http://localhost:9292/matches/${currentUser.id}/${profileId}/delete`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            }
+        })
+        .then(r=>r.json())
+        .then(deletedMatch=>deleteMatches(deletedMatch))
+    }
+
+    function deleteMatches (deletedMatch) {
+        const updatedMatches = matches.filter(match => match.id !== deletedMatch.id)
+        setMatches(updatedMatches)
+    }
+
 
     return (
+
         <div className="matches-card">
-            {matches.map(profile => <ProfileCard profile={profile} key={profile.id} currentUser={currentUser} />)}
+            {matches.map(profile => <ProfileCard profile={profile} key={profile.id} currentUser={currentUser} handleUnmatch = {handleUnmatch}/>)}
+
         </div>
     )
 }

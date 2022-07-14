@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BioForm from "./BioForm";
 
 function Bio({ bio }) {

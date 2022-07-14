@@ -7,20 +7,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function ProfileCard({ profile, currentUser }) {
+function ProfileCard({ profile, handleUnmatch }) {
 
-    async function handleUnmatch() {
-        await fetch(`http://localhost:9292/matches/${currentUser.id}/${profile.id}/delete`, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            }
-        })
-    }
 
     return (
         <div className="card">
+
             <Card className="card-holder" sx={{ maxWidth: 345 }} >
                 <CardMedia className="img" component="img" image={profile.image} alt="profile picture" />
                 <CardContent>
@@ -33,6 +25,7 @@ function ProfileCard({ profile, currentUser }) {
                     <Button><Link to={`/${profile.id}/info`}>Bio</Link></Button>
                 </CardActions>
             </Card>
+
         </div>
     )
 }

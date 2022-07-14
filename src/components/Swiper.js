@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from "react";
-import ProfileInfo from "./ProfileCard.js"
+import React from "react";
 import SwiperCard from "./SwiperCard.js";
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 
 
-function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
+function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheEnd, setIsItTheEnd }) {
 
     const matchURL = "http://localhost:9292/matches"
-
+    
     function handleLike() {
         checkForMatch(true)
         setProfileCount(profileCount + 1)
+        if(profileCount === profiles.length-1){
+        setIsItTheEnd(true)}
     }
     function handleDislike() {
         checkForMatch(false)
         setProfileCount(profileCount + 1)
+        if(profileCount === profiles.length-1){
+        setIsItTheEnd(true)}
     }
 
     async function checkForMatch(bool) {
@@ -29,30 +32,10 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
                 swipe_user: bool
             })
         })
-        // .then(response => response.json())
-        // .then(async (data) => {
-        //     console.log(data)
-        //     const user = data.id
-        //     console.log(user)
-        //     updateMatch(bool, user)
-        // })
-        console.log(bool)
     }
 
-    // function updateMatch(bool, user) {
-    //     fetch(`${matchURL}/${currentUser.id}/${user}/update`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             swipe_user: bool
-    //         })
-    //     })
-    // }
-
     return (
+        <div>{isItTheEnd? <h3>Sorry, there are no more users in your area.</h3> :
         <div className="card">
             <Card sx={{ maxWidth: 300 }}>
                 <span>
@@ -60,7 +43,10 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
                 <Button onClick={handleDislike}>❌</Button>
                 <Button onClick={handleLike}>✔️</Button>
             </span>
+
             </Card>
+        </div>
+
         </div>
     )
 }
