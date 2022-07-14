@@ -60,7 +60,7 @@ function App() {
         </Route>
         <Route path="/:id/info" element={<Info />}>
         </Route>
-        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} onUpdateBio={updateBio} />}></Route>
+        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} setCurrentUser = {setCurrentUser} />}></Route>
 
       </Routes>
 

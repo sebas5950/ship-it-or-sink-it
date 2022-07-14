@@ -7,7 +7,7 @@ function SwiperCard({ profile }) {
     return (
         <div className="card">
             <h1>{profile.name}</h1>
-            <img src={profile.image} />
+            <img src={profile.image} alt={profile.name} />
             <Link to={`/${profile.id}/info`}>More Info</Link>
         </div>
     )

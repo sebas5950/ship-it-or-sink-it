@@ -7,7 +7,7 @@ function BioForm({ bio }) {
     return (
         <div>
             <h1>{bio.name}</h1>
-            <img src={bio.image} />
+            <img src={bio.image} alt = {bio.name}/>
             <h3>{bio.age}</h3>
             <h3>{bio.gender}</h3>
             <h3>{bio.location}</h3>

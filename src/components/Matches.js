@@ -13,11 +13,21 @@ function Matches({ currentUser }) {
             .then(data => setMatches(data))
     }, []);
 
+    async function handleUnmatch(profileId) {
+        await fetch(`http://localhost:9292/matches/${currentUser.id}/${profileId}/delete`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            }
+        })
+    }
+
     console.log(matches)
 
     return (
         <div className="card">
-            {matches.map(profile => <ProfileCard profile={profile} key={profile.id} currentUser={currentUser} />)}
+            {matches.map(profile => <ProfileCard profile={profile} key={profile.id} currentUser={currentUser} handleUnmatch = {handleUnmatch}/>)}
         </div>
     )
 }
