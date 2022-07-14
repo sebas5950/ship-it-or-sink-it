@@ -37,7 +37,7 @@ After setting up the backend server (see instructions [here](https://github.com/
 
 ## Data Flow
 
-`
+```
                                 index
                                   |
                                  App
@@ -49,5 +49,5 @@ After setting up the backend server (see instructions [here](https://github.com/
                       BioForm  SwiperCard  ProfileCard
                      
 
-`
+```
 
