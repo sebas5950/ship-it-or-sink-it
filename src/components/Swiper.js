@@ -46,7 +46,7 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheE
 
             </Card>
         </div>
-
+}
         </div>
     )
 }
