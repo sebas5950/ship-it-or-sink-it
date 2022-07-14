@@ -21,6 +21,7 @@ function App() {
   const profilesURL = "http://localhost:9292/profiles"
   const [profiles, setProfiles] = useState([]);
   const [profileCount, setProfileCount] = useState(0);
+  const [isItTheEnd, setIsItTheEnd] = useState(false)
 
   useEffect(() => {
     async function goGetEm() {
@@ -41,10 +42,6 @@ function App() {
     goGetEm()
   }, []);
 
-  function updateBio(obj) {
-    setCurrentUser(obj)
-  }
-
   return (
     <div>
       <NavBar />
@@ -52,9 +49,9 @@ function App() {
         <Route exact path="/" element={<Bio bio={currentUser} />}>
         </Route>
         <Route path="/swiper" element={
-          <Swiper currentUser={currentUser} profiles={profiles} profileCount={profileCount} setProfileCount={setProfileCount} />}>
+          <Swiper currentUser={currentUser} profiles={profiles} profileCount={profileCount} setProfileCount={setProfileCount} isItTheEnd = {isItTheEnd} setIsItTheEnd={setIsItTheEnd}/>}>
         </Route>
-        <Route path="/matches" element={<Matches currentUser={currentUser} />}>
+        <Route path="/matches" element={<Matches currentUser={currentUser} setCurrentUser = {setCurrentUser}/>}>
         </Route>
         <Route path="/newUser" element={<NewUser />}>
         </Route>
