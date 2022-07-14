@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import SwiperCard from "./SwiperCard.js";
 
-function Swiper({ currentUser, profiles, profileCount, setProfileCount }) {
+function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheEnd, setIsItTheEnd }) {
 
     const matchURL = "http://localhost:9292/matches"
-    const [isItTheEnd, setIsItTheEnd] = useState(false)
     
     function handleLike() {
         checkForMatch(true)

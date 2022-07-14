@@ -38,7 +38,6 @@ function EditForm({ currentUser, setCurrentUser }) {
         setFormData({ ...formData, [name]: value })
     }
 
-
     return (
         <div className="card">
             <form onSubmit={handleSubmit}>
