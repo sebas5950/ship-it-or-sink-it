@@ -48,7 +48,7 @@ function App() {
       <NavBar />
       <div className="content-wrap">
         <Routes>
-        <Route exact path="/" element={<Bio bio={currentUser} />}>
+        <Route exact path="/" element={<Bio bio={currentUser} setCurrentUser ={setCurrentUser}/>}>
         </Route>
 
         <Route path="/swiper" element={
@@ -63,7 +63,7 @@ function App() {
         </Route>
 
         
-        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} />}></Route>
+        <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>}></Route>
       </Routes>      
       </div>
         <Footer />
