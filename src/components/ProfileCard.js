@@ -6,27 +6,33 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 function ProfileCard({ profile, handleUnmatch }) {
 
 
     return (
-        <div className="card">
-
-            <Card className="card-holder" sx={{ maxWidth: 345 }} >
-                <CardMedia className="img" component="img" image={profile.image} alt="profile picture" />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {profile.name}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small" onClick={() => handleUnmatch(profile.id)}>Unmatch</Button>
-                    <Button><Link to={`/${profile.id}/info`}>Bio</Link></Button>
-                </CardActions>
-            </Card>
-
+        <>
+        <div>
+            <Card className="card-holder">
+            <CardMedia className="img" component="img" image={profile.image} alt="profile picture" />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {profile.name}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small" onClick={() => handleUnmatch(profile.id)}><PersonRemoveIcon /></Button>
+                    <Button><Link to={`/${profile.id}/info`}><MoreHorizIcon /></Link></Button>
+            </CardActions>
+        </Card>
         </div>
+        </>
+        
+        
+
+
     )
 }
 

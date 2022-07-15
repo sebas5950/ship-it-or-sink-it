@@ -72,7 +72,10 @@ function App() {
 
           <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} setCurrentUser={setCurrentUser} />}></Route>
         </Routes>
-        <button className="funny-button" onClick={handleBackground}>funnny button</button>
+        <div className="button-wrapper">
+          <button className="funny-button" onClick={handleBackground}>funnny button</button>
+        </div>
+        
 
       </div>
       <Footer />
