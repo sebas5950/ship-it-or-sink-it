@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function NewUser() {
+function NewUser({setIsItTheEnd, setProfiles, profiles}) {
 
     let starterFormData = {
         name: '',
@@ -24,8 +24,11 @@ function NewUser() {
             },
             body: JSON.stringify(formData)
         }
-        )
-        setFormData(starterFormData)
+        ).then(() => {
+            setIsItTheEnd(false)
+            setProfiles([...profiles, formData])
+            setFormData(starterFormData)
+    })
     }
 
     function handleChange(e) {
