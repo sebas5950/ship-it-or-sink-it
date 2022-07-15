@@ -6,6 +6,7 @@
   background-color: rgb(87, 91, 85);
   position:sticky;
   top: 0px;
+  z-index: 1000;
 }
 
 .nav-link{
@@ -74,18 +75,78 @@ display: flex;
   background-size: cover;
 }
 
-#bio-card{
-  color: rgb(109, 16, 16);
-}
+
 
 .funny-button{
   position: absolute;
   left:80px;
-  top: 300px
+  top: 300px;
+  opacity: 50%;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;  
+  color:rgb(55, 37, 37);
 }
 
 .matches-card{
   display: grid;
   grid-template-columns: auto auto auto;
-  gap: 20px;
+  gap: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card-holder{
+  background-color: black;
+}
+
+.form-wrapper{
+  border: 3px ridge rgb(81, 95, 186);
+  background-color: rgb(174, 189, 184);
+  opacity: 95%;
+  border-radius: 15px;
+  width: 400px;
+}
+.form-card{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  
+}
+
+.input-box{
+  background-color: white;
+  border-radius: 15px;
+  z-index: 1000;
+  width: 300px;
+}
+
+.label-color{
+  color: rgb(92, 88, 88);
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.save-button{
+  background-image: linear-gradient(to left, rgb(232, 221, 232), rgb(142, 120, 157));
+  color: white;
+}
+
+.info-card{
+
+ background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+}
+
+.info-card-gender-gay{
+ background-image: linear-gradient(to left,  blue, green, yellow);
+}
+
+.drop-down{
+  border-radius: 15px;
+  
 }
