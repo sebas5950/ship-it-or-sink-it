@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "./ProfileCard.js"
 
-function Matches({ currentUser, setCurrentUser }) {
+function Matches({ currentUser }) {
     // console.log(currentUser.id)
 
     const matchURL = "http://localhost:9292/matches"
