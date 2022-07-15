@@ -12,12 +12,12 @@ function BioForm({ bio }) {
     return (
 
         <div className="container-bio">
-            <Card className="bio-card" sx={{ maxWidth: 300 }}>
+            <Card id="bio-card" >
                 <CardMedia
                     className="card-image"
                     component="img"
                     image={image}
-                    alt="green iguana"
+                    alt="avatar"
                 />
                 <CardContent className="card-content">
                     <Typography className="info-name" gutterBottom variant="h5" component="div">
