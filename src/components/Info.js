@@ -13,7 +13,6 @@ function Info() {
     const { id } = useParams();
     const [profileData, setProfileData] = useState({})
     const profileUrl = "http://localhost:9292/profiles"
-    const [backgroundGender, setBackgroundGender] = useState('')
     useEffect(() => {
         fetch(`${profileUrl}/${id}`)
             .then(res => res.json())
@@ -27,9 +26,7 @@ function Info() {
         navigate(-1)
     }
 
-    function setGenderBack(){
 
-    }
 
     return (
         <div>
