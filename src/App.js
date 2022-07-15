@@ -53,11 +53,13 @@ function App() {
       <div className = {background ?  "content-wrap" : `content-wrap-new`}>
       
         <Routes>
-          <Route exact path="/" element={<Bio bio={currentUser} />}>
+
+          <Route exact path="/" element={<Bio bio={currentUser} setCurrentUser ={setCurrentUser} />}>
           </Route>
 
           <Route path="/swiper" element={
             <Swiper currentUser={currentUser} profiles={profiles} profileCount={profileCount} setProfileCount={setProfileCount} isItTheEnd={isItTheEnd} setIsItTheEnd={setIsItTheEnd} />}>
+
 
           </Route>
           <Route path="/matches" element={<Matches currentUser={currentUser} setCurrentUser={setCurrentUser} />}>
@@ -68,9 +70,10 @@ function App() {
           </Route>
 
 
-          <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} />}></Route>
+          <Route path="/bio/:id/edit" element={<EditForm currentUser={currentUser} setCurrentUser={setCurrentUser} />}></Route>
         </Routes>
         <button className="funny-button" onClick={handleBackground}>funnny button</button>
+
       </div>
       <Footer />
     </div>

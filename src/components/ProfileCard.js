@@ -21,7 +21,7 @@ function ProfileCard({ profile, handleUnmatch }) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={handleUnmatch}>Unmatch</Button>
+                    <Button size="small" onClick={() => handleUnmatch(profile.id)}>Unmatch</Button>
                     <Button><Link to={`/${profile.id}/info`}>Bio</Link></Button>
                 </CardActions>
             </Card>
