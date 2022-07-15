@@ -21,15 +21,14 @@
 }
 
 .logo{
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 20px;
+  max-width: 100%;
+  max-height: 100%;
+  height: 50px;
+ width: 50px;
+ border-radius: 10px;
 }
 
-.rows{
 
-}
 
 .page-container{
   display: flex;
@@ -38,9 +37,7 @@
 
 }
 
-.content-wrap{
-  flex: 1;
-}
+
 
 .main-footer{
   color: white;
@@ -52,16 +49,43 @@
 }
  
 .content-wrap{
+  flex: 1;
   display: flex;
   align-items:  center;
   justify-content: center;
   background-image: url("https://cdn.discordapp.com/attachments/976145903788371988/997151217270661140/smashorpass.png");
   background-position: center;
-  /* background-repeat: no-repeat; */
-  background-size: contain;
-  /* background-size: cover; */
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+  background-size: cover;
 }
 
-.matches-route{
+.content-wrap-new{
+  flex: 1;
+display: flex;
+  align-items:  center;
+  justify-content: center;
+  background-position: center;
+
+  background-image: url("https://previews.123rf.com/images/mnoelle/mnoelle1902/mnoelle190200021/117337602-kawaii-pastel-rainbow-pixel-hearts-on-blue-background-repeating-seamless-vector-pattern.jpg?fj=1");
   
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-size: cover;
+}
+
+#bio-card{
+  color: rgb(109, 16, 16);
+}
+
+.funny-button{
+  position: absolute;
+  left:80px;
+  top: 300px
+}
+
+.matches-card{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
 }

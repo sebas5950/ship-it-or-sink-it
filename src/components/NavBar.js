@@ -5,9 +5,7 @@ function NavBar() {
 
   return (
     <nav className="nav-bar">
-      
-
-        <h1 className="logo">Logo</h1>
+        <img className="logo" src="https://cdn.discordapp.com/attachments/976145903788371988/997151217270661140/smashorpass.png"/>
         <div className="nav-link">
         <NavLink className="link" end to="/">User</NavLink>
         <NavLink className="link" to="/swiper">Swiper</NavLink>
