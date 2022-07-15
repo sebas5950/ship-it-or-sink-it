@@ -33,7 +33,7 @@ function Swiper({ currentUser, profiles, profileCount, setProfileCount, isItTheE
             })
         })
     }
-
+    console.log(profiles)
     return (
         <div>{isItTheEnd? <h3>Sorry, there are no more users in your area.</h3> :
         <div className="card">

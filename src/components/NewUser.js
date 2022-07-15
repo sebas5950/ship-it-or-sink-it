@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 
-function NewUser() {
+function NewUser({setIsItTheEnd, setProfiles, profiles}) {
 
     let starterFormData = {
         name: '',
@@ -26,9 +26,13 @@ function NewUser() {
             },
             body: JSON.stringify(formData)
         }
-        )
-            .then(setFormData(starterFormData))
-        // setFormData(starterFormData)
+
+        ).then(() => {
+            setIsItTheEnd(false)
+            setProfiles([...profiles, formData])
+            setFormData(starterFormData)
+    })
+
     }
 
     function handleChange(e) {

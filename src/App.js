@@ -64,7 +64,7 @@ function App() {
           </Route>
           <Route path="/matches" element={<Matches currentUser={currentUser} setCurrentUser={setCurrentUser} />}>
           </Route>
-          <Route path="/newUser" element={<NewUser />}>
+          <Route path="/newUser" element={<NewUser setIsItTheEnd = {setIsItTheEnd} setProfiles={setProfiles} profiles={profiles} />}>
           </Route>
           <Route path="/:id/info" element={<Info />}>
           </Route>

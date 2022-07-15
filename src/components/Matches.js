@@ -32,8 +32,8 @@ function Matches({ currentUser }) {
 
 
     return (
-
         <div className="matches-card">
+            {console.log(matches)}
             {matches.map(profile => <ProfileCard profile={profile} key={profile.id} currentUser={currentUser} handleUnmatch = {handleUnmatch}/>)}
 
         </div>
